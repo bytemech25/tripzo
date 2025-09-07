@@ -1,0 +1,82 @@
+.faq-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease-out;
+    
+    &.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    &:hover {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .faq-item:nth-child(1) { transition-delay: 0ms; }
+  .faq-item:nth-child(2) { transition-delay: 150ms; }
+  .faq-item:nth-child(3) { transition-delay: 300ms; }
+  .faq-item:nth-child(4) { transition-delay: 450ms; }
+  .faq-item:nth-child(5) { transition-delay: 600ms; }
+  
+  .max-h-0 {
+    max-height: 0;
+  }
+  
+  .max-h-96 {
+    max-height: 24rem;
+  }
+  
+  .faq-item.active {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .group:hover .group-hover\:text-blue-600 {
+    color: #2563eb;
+  }
+  
+  .group:hover .group-hover\:text-blue-600 {
+    transition: color 0.3s ease;
+  }
+  
+  .overflow-hidden::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .overflow-hidden::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .overflow-hidden::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+  }
+  
+  .overflow-hidden::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }

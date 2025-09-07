@@ -1,0 +1,585 @@
+<div class="py-20 bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 relative overflow-hidden min-h-screen">
+  
+  <!-- Decorative Background Elements -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 left-10 w-40 h-40 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
+    <div class="absolute top-60 right-20 w-32 h-32 bg-gradient-to-r from-orange-400 to-red-400 rounded-full animate-bounce"></div>
+    <div class="absolute bottom-20 left-1/3 w-28 h-28 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-ping"></div>
+    <div class="absolute bottom-40 right-1/4 w-36 h-36 bg-gradient-to-r from-green-400 to-teal-400 rounded-full animate-pulse delay-700"></div>
+  </div>
+  
+  <!-- Cultural Pattern Overlay -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute top-10 left-20 text-6xl text-orange-600 transform rotate-12 animate-float">📞</div>
+    <div class="absolute top-60 right-10 text-5xl text-pink-600 transform -rotate-12 animate-float delay-1000">✈️</div>
+    <div class="absolute bottom-32 left-10 text-4xl text-purple-600 animate-float delay-500">🌍</div>
+    <div class="absolute bottom-10 right-32 text-5xl text-green-600 transform rotate-45 animate-float delay-1500">📧</div>
+  </div>
+  
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+    
+    <!-- Enhanced Header -->
+    <div class="text-center mb-16 animate-slide-in">
+      <div class="inline-flex items-center justify-center mb-6">
+        <div class="h-1 w-20 bg-gradient-to-r from-purple-400 to-pink-400 rounded"></div>
+        <span class="mx-4 text-3xl animate-bounce">📞</span>
+        <div class="h-1 w-20 bg-gradient-to-r from-pink-400 to-orange-400 rounded"></div>
+      </div>
+      
+      <h1 class="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 bg-clip-text text-transparent">
+        Get In Touch
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Ready to embark on your next adventure? Let's plan the perfect journey together and create 
+        <span class="text-purple-600 font-semibold">unforgettable memories</span> that will last a lifetime
+      </p>
+    </div>
+    
+    <!-- Enhanced Tab Navigation -->
+    <div class="flex justify-center mb-12">
+      <div class="glass-effect rounded-2xl p-2 shadow-2xl border border-white/20">
+        <button 
+          (click)="switchTab('individual')"
+          [ngClass]="{'active': activeTab === 'individual'}"
+          class="tab-button px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 relative overflow-hidden">
+          <span class="relative z-10 flex items-center">
+            <span class="mr-2 text-2xl">👤</span>
+            Individual Travel
+          </span>
+        </button>
+        <button 
+          (click)="switchTab('group')"
+          [ngClass]="{'active': activeTab === 'group'}"
+          class="tab-button px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 relative overflow-hidden">
+          <span class="relative z-10 flex items-center">
+            <span class="mr-2 text-2xl">👥</span>
+            Group Travel
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Individual Travel Tab -->
+    <div *ngIf="activeTab === 'individual'" class="tab-content animate-slide-in">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Individual Contact Form -->
+        <div class="glass-effect rounded-3xl shadow-2xl p-10 border border-white/20 gradient-border transform hover:scale-105 transition-all duration-500">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-4 animate-pulse-glow">
+              <span class="text-3xl">✈️</span>
+            </div>
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Plan Your Dream Trip
+            </h2>
+            <p class="text-gray-600 mt-2">Tell us about your perfect getaway</p>
+          </div>
+          
+          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="space-y-6">
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label for="name" class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-purple-500 mr-2">👤</span>
+                Full Name
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name"
+                [(ngModel)]="formData.name"
+                required
+                class="form-input w-full px-6 py-4 border-2 border-purple-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-purple-300 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+                placeholder="Enter your full name">
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label for="email" class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-pink-500 mr-2">📧</span>
+                Email Address
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email"
+                [(ngModel)]="formData.email"
+                required
+                class="form-input w-full px-6 py-4 border-2 border-pink-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-pink-300 focus:border-pink-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+                placeholder="youremail.com">
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label for="phone" class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-orange-500 mr-2">📱</span>
+                Phone Number
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone"
+                [(ngModel)]="formData.phone"
+                class="form-input w-full px-6 py-4 border-2 border-orange-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-300 focus:border-orange-500 transition-all duration-300 bg-white/80 backdrop-blur-sm"
+                placeholder="+1 (555) 123-4567">
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label for="destination" class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-green-500 mr-2">🌍</span>
+                Dream Destination
+              </label>
+              <select 
+                id="destination" 
+                name="destination"
+                [(ngModel)]="formData.destination"
+                class="form-input w-full px-6 py-4 border-2 border-green-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-green-300 focus:border-green-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                <option value="">✨ Choose your adventure</option>
+                <option value="south-india">🏛️ South India Heritage</option>
+                <option value="kerala">🌴 Kerala Backwaters</option>
+                <option value="rajasthan">🏰 Rajasthan Royalty</option>
+                <option value="himalayas">🏔️ Himalayan Peaks</option>
+                <option value="goa">🏖️ Goa Beaches</option>
+                <option value="europe">🇪🇺 European Classics</option>
+                <option value="asia">🌏 Asian Adventures</option>
+                <option value="custom">🎯 Custom Journey</option>
+              </select>
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label for="message" class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-blue-500 mr-2">💭</span>
+                Tell Us Your Travel Dreams
+              </label>
+              <textarea 
+                id="message" 
+                name="message"
+                [(ngModel)]="formData.message"
+                rows="4"
+                required
+                class="form-input w-full px-6 py-4 border-2 border-blue-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm resize-none"
+                placeholder="Describe your perfect trip, preferred dates, budget, special requirements..."></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              [disabled]="!contactForm.form.valid"
+              class="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 text-white py-5 rounded-2xl font-bold text-lg hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 animate-pulse-glow">
+              <span class="flex items-center justify-center">
+                <span class="mr-3 text-2xl">🚀</span>
+                Start My Adventure
+                <span class="ml-3 text-2xl">✨</span>
+              </span>
+            </button>
+          </form>
+        </div>
+        
+        <!-- Enhanced Contact Info -->
+        <div class="space-y-8">
+          <!-- Main Contact Card -->
+          <div class="bg-gradient-to-br from-purple-600 via-pink-600 to-orange-600 text-white rounded-3xl p-10 shadow-2xl transform hover:scale-105 transition-all duration-500 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/10 rounded-3xl"></div>
+            <div class="relative z-10">
+              <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full mb-4 animate-bounce">
+                  <span class="text-3xl">📍</span>
+                </div>
+                <h2 class="text-3xl font-bold mb-2">Contact Information</h2>
+                <p class="text-white/90">We're here to help 24/7</p>
+              </div>
+              
+              <div class="space-y-6">
+                <div class="flex items-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:translate-x-2">
+                  <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-2xl">📍</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-lg">Visit Our Office</h3>
+                    <p class="text-white/90">123 Adventure Street, Travel City</p>
+                    <p class="text-white/90">Dream State, India 12345</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:translate-x-2">
+                  <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-2xl">📞</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-lg">Call Us Now</h3>
+                    <p class="text-white/90">+91 98765 43210</p>
+                    <p class="text-white/90 text-sm">Free consultation available</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:translate-x-2">
+                  <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-2xl">📧</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-lg">Email Us</h3>
+                    <p class="text-white/90">hellodreamtravel.com</p>
+                    <p class="text-white/90 text-sm">Quick response guaranteed</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center p-4 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transition-all duration-300 transform hover:translate-x-2">
+                  <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-2xl">🕒</span>
+                  </div>
+                  <div>
+                    <h3 class="font-bold text-lg">Working Hours</h3>
+                    <p class="text-white/90">Mon-Fri: 9:00 AM - 8:00 PM</p>
+                    <p class="text-white/90">Sat-Sun: 10:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Interactive Map Placeholder -->
+          <div class="glass-effect rounded-3xl h-80 flex items-center justify-center shadow-2xl border border-white/20 transform hover:scale-105 transition-all duration-500">
+            <div class="text-center">
+              <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4 animate-pulse-glow">
+                <span class="text-3xl text-white">🗺️</span>
+              </div>
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">Interactive Map</h3>
+              <p class="text-gray-600">Find us easily with our location guide</p>
+              <button class="mt-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105">
+                View Location
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group Travel Tab -->
+    <div *ngIf="activeTab === 'group'" class="tab-content animate-slide-in">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-6 animate-pulse-glow">
+          <span class="text-4xl text-white">👥</span>
+        </div>
+        <h2 class="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+          Group Travel & Corporate Services
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Specialized packages for groups, events, and corporate travel with 
+          <span class="text-blue-600 font-semibold">exclusive benefits</span> and 
+          <span class="text-purple-600 font-semibold">personalized service</span>
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-12 items-start">
+        <!-- Services Grid -->
+        <div class="space-y-8">
+          <div class="service-card glass-effect p-8 rounded-3xl shadow-xl border border-white/20 transform transition-all duration-500 hover:shadow-2xl">
+            <div class="flex items-start space-x-6">
+              <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 rounded-2xl">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent mb-3">
+                  Corporate Travel
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Streamlined business travel management with 24/7 support, expense reporting, and policy compliance. 
+                  Perfect for conferences, team building, and corporate retreats.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-semibold">✈️ Flight Management</span>
+                  <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-semibold">🏨 Hotel Bookings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="service-card glass-effect p-8 rounded-3xl shadow-xl border border-white/20 transform transition-all duration-500 hover:shadow-2xl">
+            <div class="flex items-start space-x-6">
+              <div class="bg-gradient-to-r from-green-500 to-teal-500 p-4 rounded-2xl">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a1 1 0 011-1h6a1 1 0 011 1v4h3a1 1 0 011 1v8a1 1 0 01-1 1H5a1 1 0 01-1-1V8a1 1 0 011-1h3z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-green-600 to-teal-600 bg-clip-text text-transparent mb-3">
+                  Event Planning
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Complete event management for conferences, weddings, and special occasions at exotic destinations. 
+                  From intimate gatherings to grand celebrations.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">🎉 Event Coordination</span>
+                  <span class="bg-teal-100 text-teal-700 px-3 py-1 rounded-full text-sm font-semibold">💒 Venue Selection</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="service-card glass-effect p-8 rounded-3xl shadow-xl border border-white/20 transform transition-all duration-500 hover:shadow-2xl">
+            <div class="flex items-start space-x-6">
+              <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-2xl">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-3">
+                  Educational Tours
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Customized educational travel experiences for schools, universities, and learning institutions. 
+                  Combine learning with adventure for unforgettable experiences.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-semibold">📚 Educational Content</span>
+                  <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-semibold">🎓 Student Groups</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="service-card glass-effect p-8 rounded-3xl shadow-xl border border-white/20 transform transition-all duration-500 hover:shadow-2xl">
+            <div class="flex items-start space-x-6">
+              <div class="bg-gradient-to-r from-orange-500 to-red-500 p-4 rounded-2xl">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-3">
+                  Family Reunions
+                </h3>
+                <p class="text-gray-600 leading-relaxed">
+                  Memorable family gatherings with accommodations and activities for all ages and interests. 
+                  Create lasting memories with your loved ones in beautiful destinations.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  <span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">👨‍👩‍👧‍👦 Family Activities</span>
+                  <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-semibold">🎈 Special Events</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Group Inquiry Form -->
+        <div class="glass-effect rounded-3xl shadow-2xl p-10 border border-white/20 gradient-border transform hover:scale-105 transition-all duration-500 sticky top-8">
+          <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4 animate-pulse-glow">
+              <span class="text-3xl text-white">🏢</span>
+            </div>
+            <h3 class="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              Group Travel Inquiry
+            </h3>
+            <p class="text-gray-600">Get a custom quote for your group</p>
+          </div>
+          
+          <form (ngSubmit)="onGroupSubmit()" #groupForm="ngForm" class="space-y-6">
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-blue-500 mr-2">🏢</span>
+                Organization Name
+              </label>
+              <input 
+                type="text" 
+                name="organizationName"
+                [(ngModel)]="groupFormData.organizationName"
+                required
+                class="form-input w-full px-6 py-4 border-2 border-blue-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 focus:border-blue-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" 
+                placeholder="Your Organization Name">
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-purple-500 mr-2">👤</span>
+                Contact Person
+              </label>
+              <input 
+                type="text" 
+                name="contactPerson"
+                [(ngModel)]="groupFormData.contactPerson"
+                required
+                class="form-input w-full px-6 py-4 border-2 border-purple-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-purple-300 focus:border-purple-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" 
+                placeholder="Your Full Name">
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-pink-500 mr-2">📧</span>
+                Email Address
+              </label>
+              <input 
+                type="email" 
+                name="groupEmail"
+                [(ngModel)]="groupFormData.email"
+                required
+                class="form-input w-full px-6 py-4 border-2 border-pink-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-pink-300 focus:border-pink-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" 
+                placeholder="yourorganization.com">
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div class="transform hover:scale-105 transition-transform duration-200">
+                <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                  <span class="text-green-500 mr-2">👥</span>
+                  Group Size
+                </label>
+                <select 
+                  name="groupSize"
+                  [(ngModel)]="groupFormData.groupSize"
+                  required
+                  class="form-input w-full px-6 py-4 border-2 border-green-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-green-300 focus:border-green-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                  <option value="">Select size</option>
+                  <option value="10-20">10-20 people</option>
+                  <option value="21-50">21-50 people</option>
+                  <option value="51-100">51-100 people</option>
+                  <option value="100+">100+ people</option>
+                </select>
+              </div>
+              <div class="transform hover:scale-105 transition-transform duration-200">
+                <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                  <span class="text-orange-500 mr-2">🎯</span>
+                  Travel Type
+                </label>
+                <select 
+                  name="travelType"
+                  [(ngModel)]="groupFormData.travelType"
+                  required
+                  class="form-input w-full px-6 py-4 border-2 border-orange-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-orange-300 focus:border-orange-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                  <option value="">Select type</option>
+                  <option value="corporate">🏢 Corporate</option>
+                  <option value="educational">📚 Educational</option>
+                  <option value="family">👨‍👩‍👧‍👦 Family Reunion</option>
+                  <option value="event">🎉 Event/Conference</option>
+                  <option value="religious">🙏 Religious Tour</option>
+                  <option value="adventure">🏔️ Adventure Group</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-indigo-500 mr-2">📅</span>
+                Preferred Travel Dates
+              </label>
+              <input 
+                type="text" 
+                name="travelDates"
+                [(ngModel)]="groupFormData.travelDates"
+                class="form-input w-full px-6 py-4 border-2 border-indigo-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:border-indigo-500 transition-all duration-300 bg-white/80 backdrop-blur-sm" 
+                placeholder="e.g., December 2024 or flexible dates">
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-teal-500 mr-2">💰</span>
+                Budget Range (Optional)
+              </label>
+              <select 
+                name="budgetRange"
+                [(ngModel)]="groupFormData.budgetRange"
+                class="form-input w-full px-6 py-4 border-2 border-teal-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-teal-300 focus:border-teal-500 transition-all duration-300 bg-white/80 backdrop-blur-sm">
+                <option value="">Select budget range</option>
+                <option value="under-50k">Under ₹50,000 per person</option>
+                <option value="50k-100k">₹50,000 - ₹1,00,000 per person</option>
+                <option value="100k-200k">₹1,00,000 - ₹2,00,000 per person</option>
+                <option value="above-200k">Above ₹2,00,000 per person</option>
+                <option value="custom">Custom Budget Discussion</option>
+              </select>
+            </div>
+            
+            <div class="transform hover:scale-105 transition-transform duration-200">
+              <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                <span class="text-rose-500 mr-2">💭</span>
+                Additional Details
+              </label>
+              <textarea 
+                name="details"
+                [(ngModel)]="groupFormData.details"
+                class="form-input w-full px-6 py-4 border-2 border-rose-200 rounded-2xl focus:outline-none focus:ring-4 focus:ring-rose-300 focus:border-rose-500 transition-all duration-300 bg-white/80 backdrop-blur-sm resize-none" 
+                rows="4" 
+                placeholder="Tell us about your group's interests, special requirements, accessibility needs, dietary restrictions..."></textarea>
+            </div>
+            
+            <button 
+              type="submit" 
+              [disabled]="!groupForm.form.valid"
+              class="w-full bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white py-5 rounded-2xl font-bold text-lg hover:from-blue-700 hover:via-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 animate-pulse-glow">
+              <span class="flex items-center justify-center">
+                <span class="mr-3 text-2xl">📋</span>
+                Request Custom Quote
+                <span class="ml-3 text-2xl">⚡</span>
+              </span>
+            </button>
+          </form>
+          
+          <!-- Trust Badges -->
+          <div class="mt-8 pt-6 border-t border-gray-200">
+            <div class="grid grid-cols-2 gap-4 text-center">
+              <div class="flex flex-col items-center">
+                <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mb-2">
+                  <span class="text-white text-xl">🏆</span>
+                </div>
+                <div class="text-sm font-semibold text-gray-700">500+ Groups</div>
+                <div class="text-xs text-gray-500">Successfully Organized</div>
+              </div>
+              <div class="flex flex-col items-center">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full flex items-center justify-center mb-2">
+                  <span class="text-white text-xl">⭐</span>
+                </div>
+                <div class="text-sm font-semibold text-gray-700">4.9/5 Rating</div>
+                <div class="text-xs text-gray-500">Customer Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Benefits Section -->
+      <div class="mt-16">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+            Why Choose Us for Group Travel?
+          </h3>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            We make group travel effortless with our comprehensive planning and 24/7 support
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center glass-effect p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-white">🎯</span>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2">Custom Planning</h4>
+            <p class="text-sm text-gray-600">Tailored itineraries for your group's specific needs and interests</p>
+          </div>
+          
+          <div class="text-center glass-effect p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-white">💰</span>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2">Group Discounts</h4>
+            <p class="text-sm text-gray-600">Special rates and exclusive deals for group bookings</p>
+          </div>
+          
+          <div class="text-center glass-effect p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-white">🤝</span>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2">Dedicated Support</h4>
+            <p class="text-sm text-gray-600">Personal travel coordinator throughout your journey</p>
+          </div>
+          
+          <div class="text-center glass-effect p-6 rounded-2xl transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
+            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span class="text-2xl text-white">📱</span>
+            </div>
+            <h4 class="font-bold text-gray-800 mb-2">24/7 Assistance</h4>
+            <p class="text-sm text-gray-600">Round-the-clock support during your travels</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom Styles -->

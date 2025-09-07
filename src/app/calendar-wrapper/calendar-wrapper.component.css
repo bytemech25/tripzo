@@ -1,0 +1,65 @@
+/* Ensure FullCalendar uses table layout for the grid */
+.fc .fc-daygrid .fc-daygrid-body tr {
+  display: table-row;
+}
+
+.fc .fc-daygrid .fc-daygrid-body td {
+  display: inline-block;
+  padding: 0;
+  width: 70px; /* Set a fixed width for each day cell */
+  height: 70px; /* Set a fixed height for each day cell */
+  margin: 4px; /* Add this line for spacing */
+  margin: 35px;
+  margin-bottom: 0px;
+  border: transparent;
+  background-color: rgb(240, 241, 255) !important;
+  background-color: transparent;
+}
+
+/* Style each day cell as a circle */
+.fc .fc-daygrid-day {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.fc .fc-daygrid-day-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #2563eb;
+  background-color: transparent;
+  z-index: 1;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.fc .fc-day-today .fc-daygrid-day-number {
+  color: rgb(0, 0, 0);
+}
+
+.fc .fc-daygrid-day:hover {
+  background-color: transparent !important;
+}
+.fc-h-event {
+    display: block;
+    border-radius: 100% !important;
+    width: 12px;
+    height: 12px;
+    background-color: rgb(37, 78, 192);
+    border: none;
+}
+
+.fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+    min-height: 2em;
+    display: flex;
+    justify-content: center;
+}
